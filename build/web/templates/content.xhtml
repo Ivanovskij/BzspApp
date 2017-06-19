@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>IGNORED</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <section>
+                <ui:include src="slider-about.xhtml"/>
+            </section>
+            
+            <div class="col-container">
+                <div class="left-cols-container">
+                    <div class="sl-detail-container">
+                        <div class="sl__detail">
+                            <div class="dsl__slide">
+                                <a href="#">
+                                    <h:graphicImage library="images/slider-detail/" name="dp1.JPG" alt="detail1"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-factory">
+                        <h2 class="title">#{msg.main_about_fact}</h2>
+                        <div class="about-logo">
+                            <a href="#">
+                                <h:graphicImage library="images" name="about-factory.jpg" alt="about-logo"/>    
+                            </a>
+                        </div>
+                        <div class="about-text">
+                            <p>
+                                <strong>ОАО «Барановичский завод станкопринадлежностей»</strong> 
+                                – производитель универсальной зажимной технологической оснастки, 
+                                необходимой для комплектации металлорежущих станков токарной, фрезерной, 
+                                сверлильной  и строгальной групп, а также узлов и деталей для автомобильной и тракторной техники.
+                            </p>
+                            <a href="#" class="link-read-more">#{msg.read_more}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-cols-container">
+                    <h2 class="news-title">#{msg.main_news}</h2>
+                    <menu>
+                        <li class="menu__li">
+                            <p class="menu__title">01 июня 2017</p>
+                            <a href="#" class="menu__link">Распродажа</a>
+                        </li>
+                        <li class="menu__li">
+                            <p class="menu__title">18 апреля 2017</p>
+                            <a href="#" class="menu__link">Металлообработка-2017</a>
+                        </li>
+                        <li class="menu__li">
+                            <p class="menu__title">13 апреля 2017</p>
+                            <a href="#" class="menu__link">Ищем партнёров для совместного приобретения горячекатаной трубы</a>
+                        </li>
+                    </menu>
+                    <a href="#" class="link-news-arhive">#{msg.archive_news}</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

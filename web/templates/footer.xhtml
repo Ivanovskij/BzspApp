@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>IGNORED</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="footer-container">
+                <div class="col col1">
+                    <p>#{msg.col1_bzsp}</p>
+                    <p>#{msg.col1_rb}</p>
+                    <p>#{msg.col1_index}</p>
+                    <p>#{msg.col1_addr}</p>
+                </div>
+                <div class="col col2">
+                    <p><span class="contacts-text">#{msg.col2_depart}</span>
+                        #{msg.col2_tel1}
+                        <p>#{msg.col2_tel2}</p>
+                    </p>
+                    <p><span class="contacts-text">#{msg.col2_fax}</span>
+                        #{msg.col2_fax_tel}
+                    </p>
+                    <p><span class="contacts-text">#{msg.col2_email_text}</span>
+                        #{msg.col2_email1}
+                        #{msg.col2_email2}
+                    </p>
+                </div>
+                <div class="col col3">
+                   <!-- <form>
+                        <input type="search" class="search" name="search" placeholder="введите поисковое слово">
+                    </form>-->
+                   <p><a href="http://minprom.gov.by" class="link-min-industry-rb">#{msg.col3_minrb}</a></p>
+                   <p><a href="#">#{msg.col3_author}</a></p>
+                </div>
+            </div>  <!-- end footer-container -->
+            <div class="clear"></div>
+        </ui:composition>
+    </h:body>
+</html>
+
