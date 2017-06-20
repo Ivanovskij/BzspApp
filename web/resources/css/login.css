@@ -1,0 +1,94 @@
+/* 
+    Created on : 20.06.2017, 12:32:37
+    Author     : IOAdmin
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #323B55;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cancel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(255,255,255,.7);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    width: 80px;
+}
+.cancel:hover {
+    background: rgba(255,255,255,.9);
+    cursor: pointer;
+}
+
+.cancel-text {
+    color: #fff;
+    font-size: 17px;
+    padding: 15px 15px 0 18px;
+}
+
+.form-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0;
+}
+.form-container:before {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+}
+
+.form {
+    display: inline-block;
+    white-space: normal;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.form input {
+    border: 1px solid #000;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    padding: 12px 5px 12px 15px;
+    margin-bottom: 7px;
+    width: 200px;
+}
+.form input:focus {
+    background: #f2f2f2;
+}
+
+.form .submit {
+    background: #6377ea;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+    width: 220px;
+}
+.form .submit:hover {
+    background: rgba(0,0,0,.5);
+}
