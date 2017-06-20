@@ -1,5 +1,3 @@
-/* global let */
-
 var sl__slide = document.getElementById('sl__slide');
 
 

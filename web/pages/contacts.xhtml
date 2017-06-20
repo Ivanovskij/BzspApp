@@ -1,12 +1,59 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Ignored</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="headTitle">
+                #{msg.contacts_title}
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="contacts-container">
+                    <div class="cont-info">
+                        <h3 class="title">#{msg.contacts_title}</h3>
+                        <p>#{msg.cont_index}</p>
+                        <p>#{msg.cont_address}</p>
+                        <div class="cont-reception">
+                            <p class="reception-text">#{msg.cont_reception}</p>
+                            <p>#{msg.cont_recep_tel}</p>
+                        </div>
+                    </div>
+                    <div class="form-feedback">
+                        <h:form>
+                            <h3 class="title">#{msg.cont_feedback}</h3>
+                            <div class="row">
+                                <p>#{msg.cont_org}</p>
+                                <h:inputText />
+                            </div>
+                            <div class="row">
+                                <p>#{msg.cont_person}</p>
+                                <h:inputText required="true"/>
+                            </div>
+                            <div class="row">
+                                <p>#{msg.cont_tel}</p>
+                                <h:inputText />
+                            </div>
+                            <div class="row">
+                                <p>#{msg.cont_email}</p>
+                                <h:inputText required="true"/>
+                            </div>
+                            <div class="row">
+                                <p>#{msg.cont_message}</p>
+                                <h:inputTextarea rows="10"/>
+                            </div>
+                            <p>
+                                <h:commandButton class="submit" value="#{msg.cont_submit}" action="#"/>
+                            </p>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

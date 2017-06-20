@@ -527,3 +527,79 @@ article {
     margin-bottom: 20px;
     text-align: center;
 }
+
+
+/**************** PAGE CONTACTS *************/
+.contacts-container {
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    margin: 0 auto;
+    padding: 15px;
+    width: 400px;
+}
+.contacts-container p {
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.cont-info p {
+    text-indent: 30px;
+}
+
+.cont-reception {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.reception-text {
+    font-weight: bold;
+    float: left;
+    padding-right: 85px;
+}
+
+.contacts-container .title {
+    color: #10447e;
+    font: normal 30px Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.cont-info {
+    margin-bottom: 20px;
+}
+
+.row {
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+}
+.row p {
+    text-align: left;
+    padding-bottom: 4px;
+}
+.row input, textarea {
+    background: #f0f0f0;
+    border: 1px solid #d1d1d1;
+    border-radius: 7px;
+    padding: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    width: 300px;
+}
+
+.form-feedback .submit {
+    background: #2A6394;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 50px;
+    width: 120px;
+}
+.form-feedback .submit:hover {
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
