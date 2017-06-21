@@ -64,6 +64,7 @@ a {
     white-space: normal;
     vertical-align: middle;
     text-align: left;
+    position: relative;
 }
 
 .form input {
@@ -73,6 +74,7 @@ a {
     outline: none;
     padding: 12px 5px 12px 15px;
     margin-bottom: 7px;
+    margin-right: 5px;
     width: 200px;
 }
 .form input:focus {
@@ -91,4 +93,26 @@ a {
 }
 .form .submit:hover {
     background: rgba(0,0,0,.5);
+}
+
+.login-error {
+    position: absolute;
+    top: 10px;
+    background: rgba(255,0,30,.6);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px;
+    width: 200px;
+}
+
+.pass-error {
+    position: absolute;
+    bottom: 60px;
+    background: rgba(255,0,30,.6);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px;
+    width: 200px;
 }

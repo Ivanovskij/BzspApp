@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>#{msg.login_title}</title>
         <h:outputStylesheet library="css" name="login.css"/>
@@ -13,13 +14,24 @@
             <h:link class="cancel" outcome="home"/>
             <h:form class="form">
                 <p>
-                    <h:inputText p:placeholder="имя пользователя" required="true"/>
+                    <h:inputText id="username" p:placeholder="имя пользователя" 
+                                 value="#{userLogin.name}" required="true"
+                                 requiredMessage="#{msg.login_empty_error}">
+                        <f:ajax event="keyup" render="userError"/>
+                    </h:inputText>
+                    <h:message id="userError" for="username" styleClass="login-error"/>
                 </p>
                 <p>
-                    <h:inputSecret p:placeholder="пароль" required="true"/>
+                    <h:inputSecret id="userpass" p:placeholder="пароль" 
+                                   value="#{userLogin.password}" required="true"
+                                   requiredMessage="#{msg.login_empty_error}">
+                        <f:validator validatorId="com.github.ivanovskij.validators.LoginValidator"/>
+                        <f:ajax event="keyup" render="passError"/>
+                    </h:inputSecret>
+                    <h:message id="passError" for="userpass" styleClass="pass-error"/>
                 </p>
                 <p>
-                    <h:commandButton class="submit" value="#{msg.login_submit}" action="#"/>
+                    <h:commandButton class="submit" value="#{msg.login_submit}" action="#{userLogin.login}"/>
                 </p>
             </h:form>
         </div>
