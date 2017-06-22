@@ -9,14 +9,16 @@
     <h:body>
         <ui:composition>
             <div class="nav-container">
-                <ul>
-                    <li><h:link value="#{msg.nav_home}" outcome="home"/></li>
-                    <li><h:link value="#{msg.nav_about}" outcome="about"/></li>
-                    <li><h:link value="#{msg.nav_news}" outcome="news"/></li>
-                    <li><h:link value="#{msg.nav_production}" outcome="production"/></li>
-                    <li><h:link value="#{msg.nav_quality}" outcome="quality"/></li>
-                    <li><h:link value="#{msg.nav_contacts}" outcome="contacts"/></li>
-                </ul>
+                <h:form>
+                    <ul>
+                        <li><h:commandLink value="#{msg.nav_home}" action="home"/></li>
+                        <li><h:commandLink value="#{msg.nav_about}" action="about"/></li>
+                        <li><h:commandLink value="#{msg.nav_news}" action="news"/></li>
+                        <li><h:commandLink value="#{msg.nav_production}" action="production"/></li>
+                        <li><h:commandLink value="#{msg.nav_quality}" action="quality"/></li>
+                        <li><h:commandLink value="#{msg.nav_contacts}" action="contacts"/></li>
+                    </ul>
+                </h:form>
             </div>
         </ui:composition>
     </h:body>

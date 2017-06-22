@@ -49,8 +49,8 @@ public class UserLogin implements Serializable {
                     FacesContext.getCurrentInstance().getViewRoot().getLocale());
             FacesContext context = FacesContext.getCurrentInstance();
             FacesMessage message = new FacesMessage(bundle.getString("login_access_error"));
-            message.setSeverity(FacesMessage.SEVERITY_WARN);
-            context.addMessage("passError", message);
+            message.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage("form-login:username", message);
         }
         return "login";
     }  

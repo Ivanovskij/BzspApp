@@ -13,38 +13,44 @@
     </application>
     <navigation-rule>
         <navigation-case>
-            <from-outcome>about</from-outcome>
-            <to-view-id>/pages/about.xhtml</to-view-id>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
-            <from-outcome>home</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
+            <from-outcome>about</from-outcome>
+            <to-view-id>pages/about.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>news</from-outcome>
-            <to-view-id>/pages/news.xhtml</to-view-id>
+            <to-view-id>pages/news.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>production</from-outcome>
-            <to-view-id>/pages/production.xhtml</to-view-id>
+            <to-view-id>pages/production.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>quality</from-outcome>
-            <to-view-id>/pages/quality.xhtml</to-view-id>
+            <to-view-id>pages/quality.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>contacts</from-outcome>
-            <to-view-id>/pages/contacts.xhtml</to-view-id>
+            <to-view-id>pages/contacts.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>

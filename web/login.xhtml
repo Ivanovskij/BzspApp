@@ -10,9 +10,10 @@
     </h:head>
     <h:body>
         <p class="cancel-text">#{msg.back}</p>
+        
         <div class="form-container">
             <h:link class="cancel" outcome="home"/>
-            <h:form class="form">
+            <h:form id="form-login" class="form">
                 <p>
                     <h:inputText id="username" p:placeholder="имя пользователя" 
                                  value="#{userLogin.name}" required="true"

@@ -1,0 +1,48 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <!-- =============== NAV PAGES =============== -->
+    <url-mapping id="home">
+        <pattern value="/home" />
+        <view-id value="/faces/index.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="about">
+        <pattern value="/about" />
+        <view-id value="/faces/pages/about.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="contacts">
+        <pattern value="/contacts" />
+        <view-id value="/faces/pages/contacts.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="news">
+        <pattern value="/news" />
+        <view-id value="/faces/pages/news.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="quality">
+        <pattern value="/quality" />
+        <view-id value="/faces/pages/quality.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="production">
+        <pattern value="/production" />
+        <view-id value="/faces/pages/production.xhtml" />
+    </url-mapping>
+    
+    <!-- =============== LOGIN =============== -->
+    <url-mapping id="login">
+        <pattern value="/login" />
+        <view-id value="/faces/login.xhtml" />
+    </url-mapping>
+
+    <!-- =============== ADMIN =============== -->
+    <url-mapping id="admin-index">
+        <pattern value="/admin-index" />
+        <view-id value="/faces/admin/index.xhtml" />
+    </url-mapping>
+</pretty-config>
