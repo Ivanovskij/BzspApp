@@ -21,6 +21,10 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.xhtml</location>
+    </error-page>
     <!-- ======================================= AUTHORIZATION ====================================== -->
     <security-constraint>
         <web-resource-collection>
@@ -44,7 +48,7 @@
     </login-config>
     <!-- ======================================= DataSource ====================================== -->
     <resource-ref>
-        <res-ref-name>db_bzsp</res-ref-name>
+        <res-ref-name>jdbc/db_bzsp</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>

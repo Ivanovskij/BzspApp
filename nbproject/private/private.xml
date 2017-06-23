@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/META-INF/context.xml</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/pages/news.xhtml</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/src/java/com/github/ivanovskij/dao/models/NewsDao.java</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/resources/css/main.css</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/templates/content.xhtml</file>
+        </group>
     </open-files>
 </project-private>
