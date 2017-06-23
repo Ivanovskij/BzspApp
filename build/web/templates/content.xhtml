@@ -11,24 +11,29 @@
             <section>
                 <ui:include src="slider-about.xhtml"/>
             </section>
-            
+
             <div class="col-container">
                 <div class="left-cols-container">
                     <div class="sl-detail-container">
+                        <h2 class="last-view-title">#{msg.main_last_view_detail}</h2>
                         <div class="sl__detail">
-                            <div class="dsl__slide">
-                                <a href="#">
-                                    <h:graphicImage library="images/slider-detail/" name="dp1.JPG" alt="detail1"/>
-                                </a>
-                            </div>
+                            <ui:repeat var="p" value="#{productionDao.productByType}">
+                                <div class="dsl__slide">
+                                    <h:link outcome="production">
+                                        <h:graphicImage library="images/details/" 
+                                                        name="#{p.image}" 
+                                                        alt="#{p.image}"/>
+                                    </h:link>
+                                </div>
+                            </ui:repeat>
                         </div>
                     </div>
                     <div class="about-factory">
                         <h2 class="title">#{msg.main_about_fact}</h2>
                         <div class="about-logo">
-                            <a href="#">
+                            <h:link outcome="about">
                                 <h:graphicImage library="images" name="about-factory.jpg" alt="about-logo"/>    
-                            </a>
+                            </h:link>
                         </div>
                         <div class="about-text">
                             <p>
@@ -37,27 +42,23 @@
                                 необходимой для комплектации металлорежущих станков токарной, фрезерной, 
                                 сверлильной  и строгальной групп, а также узлов и деталей для автомобильной и тракторной техники.
                             </p>
-                            <a href="#" class="link-read-more">#{msg.read_more}</a>
+                            <h:link outcome="about" class="link-read-more">#{msg.read_more}</h:link>
                         </div>
                     </div>
                 </div>
                 <div class="right-cols-container">
                     <h2 class="news-title">#{msg.main_news}</h2>
                     <menu>
-                        <li class="menu__li">
-                            <p class="menu__title">01 июня 2017</p>
-                            <a href="#" class="menu__link">Распродажа</a>
-                        </li>
-                        <li class="menu__li">
-                            <p class="menu__title">18 апреля 2017</p>
-                            <a href="#" class="menu__link">Металлообработка-2017</a>
-                        </li>
-                        <li class="menu__li">
-                            <p class="menu__title">13 апреля 2017</p>
-                            <a href="#" class="menu__link">Ищем партнёров для совместного приобретения горячекатаной трубы</a>
-                        </li>
+                        <h:form id="right-col-news">
+                            <ui:repeat var="news" value="#{newsDao.newsByDate}">
+                                <li class="menu__li">
+                                    <p class="menu__date">#{news.date}</p>
+                                    <p class="menu__title">#{news.name}</p>
+                                </li>
+                            </ui:repeat>
+                        </h:form>
                     </menu>
-                    <a href="#" class="link-news-arhive">#{msg.archive_news}</a>
+                    <h:link outcome="news" class="link-news-arhive">#{msg.archive_news}</h:link>
                 </div>
                 <div class="clear"></div>
             </div>
