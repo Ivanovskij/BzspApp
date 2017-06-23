@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Ignored</title>
     </h:head>
@@ -15,55 +16,42 @@
             <ui:define name="content">
                 <div class="col-container">
                     <div class="left-col-container">
-                        <ul>
-                            <li><h:link value="null" class="selected"/></li>
-                            <li><h:link value="null"/></li>
-                        </ul>
-
+                        <h:form id="form-detail-type">
+                            <ui:repeat var="typePr" value="#{productionDao.allTypeProducts}">
+                                <li>
+                                    <h:commandLink value="#{typePr.typeProduct}"
+                                                   styleClass="#{typePr.typeProduct.equals(productionDao.currentTypePr) ? 'selected-typePr':''}"
+                                                   action="#{productionDao.selectTypePr}">
+                                        <f:param name="typePr" value="#{typePr.typeProduct}"/>
+                                        
+                                    </h:commandLink>
+                                </li>
+                            </ui:repeat>
+                        </h:form>
                     </div>
                     <div class="right-col-container">
                         <div class="detail-container">
-                            <h3 class="title">current name from db</h3>
-                            <div class="detail">
-                                <div class="d__img">
-                                    <a href="#">
-                                        <h:graphicImage width="244" height="170" alt="img1"/>
-                                    </a>
-                                </div>
-                                <div class="d__name">
-                                    <p>blabla</p>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <div class="d__img">
-                                    <a href="#">
-                                        <h:graphicImage width="244" height="170" alt="img1"/>
-                                    </a>
-                                </div>
-                                <div class="d__name">
-                                    <p>blabla</p>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <div class="d__img">
-                                    <a href="#">
-                                        <h:graphicImage width="244" height="170" alt="img1"/>
-                                    </a>
-                                </div>
-                                <div class="d__name">
-                                    <p>blabla</p>
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <div class="d__img">
-                                    <a href="#">
-                                        <h:graphicImage width="244" height="170" alt="img1"/>
-                                    </a>
-                                </div>
-                                <div class="d__name">
-                                    <p>blabla</p>
-                                </div>
-                            </div>
+                            <h:outputText class="title" 
+                                          value="#{typePr.typeProduct.equals(productionDao.currentTypePr) 
+                                                   ? typePr.typeProduct : msg.choose_typedetail}"/>
+                            <h:form id="form-detail">
+                                <ui:repeat var="d" value="#{productionDao.productByType}">
+                                    <div class="detail">
+                                        <div class="d__img">
+                                            <a href="#">
+                                                <h:graphicImage library="images/details/" 
+                                                                name="#{d.image}" 
+                                                                width="187"
+                                                                height="160"
+                                                                alt="#{d.image}"/>
+                                            </a>
+                                        </div>
+                                        <div class="d__name">
+                                            <p>#{d.name}</p>
+                                        </div>
+                                    </div>
+                                </ui:repeat>
+                            </h:form>
                         </div>
                     </div>
                     <div class="clear"></div>

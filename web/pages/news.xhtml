@@ -23,22 +23,23 @@
                                                    styleClass="#{dateNumber.date.equals(newsDao.selectedDate) ? 'selected-date':''}"
                                                    action="#{newsDao.selectDate}">
                                         <f:param name="date" value="#{dateNumber.date}"/>
-                                        <f:ajax event="click" execute=":right-col"/>
                                     </h:commandLink>
                                 </li>
                             </ui:repeat>
                         </h:form>
                     </div>
-                    <div id="right-col" class="right-col-container">
-                        <h2 class="news-title">Новости</h2>
+                    <div class="right-col-container">
+                        <h2 class="news-title">#{msg.nav_news}</h2>
                         <article>
-                            <ui:repeat var="news" value="#{newsDao.newsByDate}">
-                                <li class="menu__li">
-                                    <p class="menu__date">#{news.date}</p>
-                                    <p class="menu__title">#{news.name}</p>
-                                    <p class="menu__descr">#{news.descr}</p>
-                                </li>
-                            </ui:repeat>
+                            <h:form id="right-col-news">
+                                <ui:repeat var="news" value="#{newsDao.newsByDate}">
+                                    <li class="menu__li">
+                                        <p class="menu__date">#{news.date}</p>
+                                        <p class="menu__title">#{news.name}</p>
+                                        <p class="menu__descr">#{news.descr}</p>
+                                    </li>
+                                </ui:repeat>
+                            </h:form>
                         </article>
                     </div>
                     <div class="clear"></div>

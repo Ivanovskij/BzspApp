@@ -4,10 +4,10 @@ var sl__slide = document.getElementById('sl__slide');
 /**** mouse over, out *****/
 sl__slide.onmouseover = function (e) {
     addStopClass();
-}
+};
 sl__slide.onmouseout = function (e) {
     addRunClass();
-}
+};
 
 function addStopClass() {
     sl__slide.classList.add("stop__slider");
@@ -52,32 +52,32 @@ radio1.onclick = function () {
     sl__slide.style.animation = 'none';
     addImg1Class();
     timeout = setTimeout(runAnimation, 5000);
-}
+};
 radio2.onclick = function () {
     clearTimeout(timeout);
     removeAllClassImg();
     sl__slide.style.animation = 'none';
     addImg2Class();
     timeout = setTimeout(runAnimation, 5000);
-}
+};
 radio3.onclick = function () {
     clearTimeout(timeout);
     removeAllClassImg();
     sl__slide.style.animation = 'none';
     addImg3Class();
     timeout = setTimeout(runAnimation, 5000);
-}
+};
 radio4.onclick = function () {
     clearTimeout(timeout);
     removeAllClassImg();
     sl__slide.style.animation = 'none';
     addImg4Class();
     timeout = setTimeout(runAnimation, 5000);
-}
+};
 // запускаем слайдер вновь
 let timeout;
 
 var runAnimation = function () {
     removeAllClassImg();
     sl__slide.style.animation = 'img_spin 10s ease-in-out infinite';
-}
+};

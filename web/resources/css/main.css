@@ -604,20 +604,30 @@ article {
 /**************** PAGE PRODUCTION -> DETAILS *************/
 
 .detail-container {
-    width: 530px;
+    width: 550px;
     margin: 0 auto;
 }
 
 .detail-container .title {
-    color: #10447e;
-    font: normal 30px Arial, Helvetica, sans-serif;
+    background: #125289;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font: bold 18px Arial, sans-serif;
     margin-bottom: 20px;
+    padding: 7px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .detail {
-    margin-bottom: 30px;
+    border: 1px solid #e1e1e1;
     display: inline-block;
+    margin-bottom: 30px;
+    max-width: 250px;
+}
+.detail:hover {
+    border: 1px solid #1479C1;
 }
 
 .detail:nth-child(even) {
@@ -625,7 +635,23 @@ article {
 }
 
 .detail .d__name {
+    border-top: 1px solid #e1e1e1;
+    font-style: italic;
+    padding: 3px;
     text-align: center;
+    
+}
+
+.detail .d__img {
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 173px;
+    width: 187px;
+}
+
+.left-col-container .selected-typePr {
+    background: #10457e;
+    color: #fff;
 }
 
 /**************** PAGE NEWS *************/

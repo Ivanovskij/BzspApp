@@ -9,9 +9,9 @@
     <h:body>
         <ui:composition>
             <div class="nav-container">
-                <h:form>
+                <h:form id="form-nav">
                     <ul>
-                        <li><h:commandLink value="#{msg.nav_home}" action="home"/></li>
+                        <li><h:commandLink class="selected" value="#{msg.nav_home}" action="home"/></li>
                         <li><h:commandLink value="#{msg.nav_about}" action="about"/></li>
                         <li><h:commandLink value="#{msg.nav_news}" action="news"/></li>
                         <li><h:commandLink value="#{msg.nav_production}" action="production"/></li>

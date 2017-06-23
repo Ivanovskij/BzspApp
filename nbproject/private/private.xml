@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/META-INF/context.xml</file>
-            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/pages/news.xhtml</file>
-            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/src/java/com/github/ivanovskij/dao/models/NewsDao.java</file>
-            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/resources/css/main.css</file>
-            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/templates/content.xhtml</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/templates/template.xhtml</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/resources/js/sliders.js</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/resources/js/nav.js</file>
+            <file>file:/F:/Programming/Java/Projects-Web/BzspApp/web/templates/nav.xhtml</file>
         </group>
     </open-files>
 </project-private>

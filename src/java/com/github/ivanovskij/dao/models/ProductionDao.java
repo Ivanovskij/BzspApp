@@ -5,7 +5,7 @@
  */
 package com.github.ivanovskij.dao.models;
 
-import com.github.ivanovskij.beans.News;
+import com.github.ivanovskij.beans.Production;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,8 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -26,19 +24,18 @@ import javax.sql.DataSource;
 
 @ManagedBean(eager = true)
 @ApplicationScoped
-public class NewsDao {
-
-    private static final String CURRENT_DATE = "2017";
-
+public class ProductionDao {
+    
     @Resource(name = "jdbc/db_bzsp")
     private DataSource ds;
     private Connection conn;
 
-    private List<News> newsList = new ArrayList<>();
+    private List<Production> productionList = new ArrayList<>();
+    
+    private String currentTypePr = "";
 
-    private String selectedDate = CURRENT_DATE;
 
-    public NewsDao() {
+    public ProductionDao() {
         try {
             Context ctx = new InitialContext();
             ds = (DataSource) ctx.lookup("java:comp/env/jdbc/db_bzsp");
@@ -46,7 +43,7 @@ public class NewsDao {
             e.printStackTrace();
         }
     }
-
+    
     // --------------------------------------------------------
     private Connection getConnection() throws SQLException {
         if (ds == null) {
@@ -58,29 +55,32 @@ public class NewsDao {
         }
         return conn;
     }
-
+    
     // --------------------------------------------------------
     public List selectExecute(String query) {
         try {
             Statement stmt = getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            newsList.clear();
+            productionList.clear();
             while (rs.next()) {
-                News news = new News();
-                news.setIdNews(rs.getInt("idNews"));
-                news.setName(rs.getString("name"));
-                news.setDescr(rs.getString("descr"));
-                news.setLang(rs.getString("lang"));
-                news.setDate(rs.getString("date"));
-                newsList.add(news);
+                Production production = new Production();
+                production.setIdProducts(rs.getInt("idProducts"));
+                production.setName(rs.getString("name"));
+                production.setDescr(rs.getString("descr"));
+                production.setImage(rs.getString("image"));
+                production.setDelete(rs.getString("isDelete"));
+                production.setCost(rs.getDouble("cost"));
+                production.setTypeProduct(rs.getString("typePr"));
+                production.setLang(rs.getString("typePr"));
+                productionList.add(production);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             closeConnection();
         }
-        return newsList;
+        return productionList;
     }
 
     // --------------------------------------------------------
@@ -93,63 +93,59 @@ public class NewsDao {
             }
         }
     }
-
+    
     // --------------------------------------------------------
-    public List<News> getAllDates() {
+    public List<Production> getProductByType() {
+        return selectExecute(
+            "SELECT idProducts, p.name, descr, image, cost, " 
+            + "isDelete, TypeProducts_idTypeProducts as typePr "
+            + "FROM products as p, language, typeproducts "
+            + "where isDelete = 'N' and "
+            + "language.idLanguage = 1 and "
+            + "language.idLanguage = p.Language_idLanguage and "        
+            + "typeproducts.idTypeProducts = p.TypeProducts_idTypeProducts and "
+            + "typeproducts.name = '" + currentTypePr + "'"
+        );   
+    }
+    
+    // --------------------------------------------------------
+    public List<Production> getAllTypeProducts() {
         try {
             Statement stmt = getConnection().createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT DISTINCT DATE_FORMAT(news.date, '%Y') as dateFormat FROM news");
+            ResultSet rs = stmt.executeQuery(
+                    "select distinct typeproducts.name as typePr from products, typeproducts "
+                    + "where products.TypeProducts_idTypeProducts = typeproducts.idTypeProducts and "
+                    + "typeproducts.Language_idLanguage = 1"
+            );
 
-            newsList.clear();
+            productionList.clear();
             while (rs.next()) {
-                News news = new News();
-                news.setIdNews(0);
-                news.setName(null);
-                news.setDescr(null);
-                news.setLang(null);
-                news.setDate(rs.getString("dateFormat"));
-                newsList.add(news);
+                Production production = new Production();
+                production.setTypeProduct(rs.getString("typePr"));
+                productionList.add(production);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(NewsDao.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+            closeConnection();
         }
-        return newsList;
-    }
-
-    // --------------------------------------------------------
-    public List<News> getNewsByDate() {
-        return selectExecute(
-            "SELECT DISTINCT idNews, name, descr, Language_idLanguage as lang, date "
-            + "FROM news " 
-            + "where "
-            + "Language_idLanguage = 1 and "
-            + "DATE_FORMAT(news.date, '%Y') = '" + selectedDate + "'"
-        );       
+        return productionList;
     }
     
     // --------------------------------------------------------
-    public void selectDate() {
+    public void selectTypePr() {
         Map<String, String> param = 
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        selectedDate = param.get("date");
-        getNewsByDate();
-    }
-    
-    // --------------------------------------------------------
-    public String getSelectedDate() {
-        return selectedDate;
+        currentTypePr = (String)param.get("typePr");
+        getProductByType();
     }
 
-    public void setSelectedDate(String selectedDate) {
-        this.selectedDate = selectedDate;
+    // -------------------------------------------------------
+    public String getCurrentTypePr() {
+        return currentTypePr;
     }
 
+    public void setCurrentTypePr(String currentTypePr) {
+        this.currentTypePr = currentTypePr;
+    }
 }
