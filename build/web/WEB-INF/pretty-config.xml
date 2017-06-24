@@ -45,4 +45,19 @@
         <pattern value="/admin-index" />
         <view-id value="/faces/admin/index.xhtml" />
     </url-mapping>
+    
+    <url-mapping id="admin-create">
+        <pattern value="/admin-create" />
+        <view-id value="/faces/admin/create.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="admin-update">
+        <pattern value="/admin-update" />
+        <view-id value="/faces/admin/update.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="admin-delete">
+        <pattern value="/admin-delete" />
+        <view-id value="/faces/admin/delete.xhtml" />
+    </url-mapping>
 </pretty-config>

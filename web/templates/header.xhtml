@@ -14,10 +14,20 @@
                     <h:link outcome="home"><h:graphicImage library="images" name="logo.png" width="490" height="87" alt="logotype"/></h:link>
                 </div>
                 <div class="lang">
-                    <ul>
-                        <li><a href="#"><h:graphicImage library="images" name="lang_ru.png" width="75" height="49" alt="lang_ru"/></a></li>
-                        <li><a href="#"><h:graphicImage library="images" name="lang_eng.png" width="75" height="49" alt="lang_eng"/></a></li>
-                    </ul>
+                    <h:form>
+                        <ul>
+                            <li>
+                                <h:commandLink action="#{localeChanger.setCurrentLocale('ru')}">
+                                    <h:graphicImage library="images" name="lang_ru.png" width="75" height="49" alt="lang_ru"/>
+                                </h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="#{localeChanger.setCurrentLocale('en')}">
+                                    <h:graphicImage library="images" name="lang_eng.png" width="75" height="49" alt="lang_eng"/>
+                                </h:commandLink>
+                            </li>
+                        </ul>
+                    </h:form>
                 </div>
             </div>
             <div class="clear"></div>
