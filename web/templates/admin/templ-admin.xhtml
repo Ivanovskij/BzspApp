@@ -13,21 +13,24 @@
                 <ui:include src="header.xhtml"/> 
             </ui:insert>
         </header>
-        
+
         <div id="page-container">
             <div class="middle-container">
                 <main>
                     <ui:insert name="left-sidebar">
                         <ui:include src="left-sidebar.xhtml"/>
                     </ui:insert>
-                    <ui:insert name="content">
-                        <ui:include src="content.xhtml"/>
-                    </ui:insert>
+                    
+                    <div class="right-col-container">
+                        <ui:insert name="content">
+                            <ui:include src="content.xhtml"/>
+                        </ui:insert>
+                    </div>
                 </main>
             </div>  <!-- end middle-container -->
             <div class="empty"></div>
         </div>  <!-- end page-container -->
-        
+
         <footer>
             <ui:include src="footer.xhtml"/>
         </footer>

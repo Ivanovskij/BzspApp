@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -130,7 +131,7 @@ public class NewsDao {
             "SELECT DISTINCT idNews, name, descr, Language_idLanguage as lang, date "
             + "FROM news " 
             + "where "
-            + "Language_idLanguage = 1 and "
+            + "Language_idLanguage = " + getCurrentLocale() + " and "
             + "DATE_FORMAT(news.date, '%Y') = '" + selectedDate + "'"
         );       
     }
@@ -150,6 +151,18 @@ public class NewsDao {
 
     public void setSelectedDate(String selectedDate) {
         this.selectedDate = selectedDate;
+    }
+    
+    // 1 - русская локаль
+    // 2 - английская локаль
+    // 1 и 2 это в БД idLang
+    private int getCurrentLocale() {
+        Locale current = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+        if (current.toString().equals("ru")) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
 }

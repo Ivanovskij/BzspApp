@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Resource;
 import javax.faces.bean.ApplicationScoped;
@@ -101,7 +102,7 @@ public class ProductionDao {
             + "isDelete, TypeProducts_idTypeProducts as typePr "
             + "FROM products as p, language, typeproducts "
             + "where isDelete = 'N' and "
-            + "language.idLanguage = 1 and "
+            + "language.idLanguage = " + getCurrentLocale() + " and "
             + "language.idLanguage = p.Language_idLanguage and "        
             + "typeproducts.idTypeProducts = p.TypeProducts_idTypeProducts and "
             + "typeproducts.name = '" + currentTypePr + "'"
@@ -115,7 +116,7 @@ public class ProductionDao {
             ResultSet rs = stmt.executeQuery(
                     "select distinct typeproducts.name as typePr from products, typeproducts "
                     + "where products.TypeProducts_idTypeProducts = typeproducts.idTypeProducts and "
-                    + "typeproducts.Language_idLanguage = 1"
+                    + "typeproducts.Language_idLanguage = " + getCurrentLocale() + ""
             );
 
             productionList.clear();
@@ -133,6 +134,18 @@ public class ProductionDao {
     }
     
     // --------------------------------------------------------
+    public List<Production> getAllProductions() {
+        return selectExecute(
+            "SELECT idProducts, p.name, descr, image, cost, " 
+            + "isDelete, TypeProducts_idTypeProducts as typePr "
+            + "FROM products as p, language, typeproducts "
+            + "where "
+            + "language.idLanguage = p.Language_idLanguage and "        
+            + "typeproducts.idTypeProducts = p.TypeProducts_idTypeProducts"
+        ); 
+    }
+    
+    // --------------------------------------------------------
     public void selectTypePr() {
         Map<String, String> param = 
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -147,5 +160,18 @@ public class ProductionDao {
 
     public void setCurrentTypePr(String currentTypePr) {
         this.currentTypePr = currentTypePr;
+    }
+    
+    // -------------------------------------------------------
+    // 1 - русская локаль
+    // 2 - английская локаль
+    // 1 и 2 это в БД idLang
+    private int getCurrentLocale() {
+        Locale current = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+        if (current.toString().equals("ru")) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 }
