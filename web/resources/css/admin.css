@@ -156,8 +156,8 @@ li a.selected {
 .form-search {
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 5px;
-    width: 100%;
+    padding: 6px;
+    width: 98%;
 }
 
 .form-search .input {
@@ -165,7 +165,7 @@ li a.selected {
     float: left;
     padding: 3px;
     margin-right: 10px;
-    width: 500px;
+    width: 555px;
 }
 
 .form-search .button {
@@ -176,6 +176,90 @@ li a.selected {
     cursor: pointer;
     padding: 5px;
     width: 150px;
+}
+
+/** create **/
+.form-create {
+    padding: 10px;
+    width: 96%;
+    text-align: center;
+}
+
+.form-create-container {
+    box-shadow: 0 1px 5px rgba(0,0,0,.5);
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.form-create label {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.form-create input {
+    border-radius: 3px;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.form-create .descr {
+    border-radius: 3px;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.form-create .button {
+    background: #555;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    width: 210px;
+}
+
+.error-message {
+    background: rgba(255,0,30,.6);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 11px;
+    padding: 3px;
+    width: 200px;
+}
+
+.status-container {
+    background: rgba(44,160,108,.9);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
+    margin: 0 auto;
+    padding: 3px;
+    width: 210px;
+}
+
+/** update **/
+.form-update input {
+    text-align: center;
+    width: 45px;
+}
+
+.form-update .image {
+    width: 80px;
+}
+
+.form-update .delete {
+    width: 15px;
+}
+
+/** delete **/
+.form-delete .button {
+    background: #555;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    padding: 3px 6px;
 }
 
 /** table **/

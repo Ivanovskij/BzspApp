@@ -12,54 +12,116 @@
             <ui:define name="headAdminTitle">
                 #{msg.admin_create_title}
             </ui:define>
-            
+
             <ui:define name="content">
-                <h:form>
-                    <h:messages/>
-                    <p>
-                        ID:
-                        <h:inputText value="#{production.idProducts}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Название:
-                        <h:inputText value="#{production.name}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Описание:
-                        <h:inputText value="#{production.descr}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Картинка:
-                        <h:inputText value="#{production.image}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Цена:
-                        <h:inputText value="#{production.cost}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Удалена:
-                        <h:inputText value="#{production.delete}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Тип ID:
-                        <h:inputText value="#{production.typeProduct}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        Язык ID:
-                        <h:inputText value="#{production.lang}"
-                                 required="true"/>    
-                    </p>
-                    <p>
-                        <h:commandButton value="Добавить"
-                                         action="#{production.createProduct()}"/>
-                    </p>
+                <h:form class="form-create">
+                    <div class="form-create-container">
+                        <p>
+                            <h:outputLabel for="inputId" value="ID:"/>
+                            <h:inputText id="inputId" value="#{production.idProducts}"
+                                         required="true" 
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputId1"/>
+                            </h:inputText>  
+                            <h:message id="inputId1" 
+                                       for="inputId" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Название:"/>
+                            <h:inputText id="inputName" value="#{production.name}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputName1"/>
+                            </h:inputText>
+                            <h:message id="inputName1" 
+                                       for="inputName" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Описание:"/>
+                            <h:inputTextarea id="inputDescr" 
+                                         class="input descr"
+                                         rows="10"
+                                         cols="60"
+                                         value="#{production.descr}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputDescr1"/>
+                            </h:inputTextarea>
+                            <h:message id="inputDescr1" 
+                                       for="inputDescr" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Картинка:"/>
+                            <h:inputText id="inputImage" value="#{production.image}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputImage1"/>
+                            </h:inputText>
+                            <h:message id="inputImage1" 
+                                       for="inputImage" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Цена:"/>
+                            <h:inputText id="inputCost" value="#{production.cost}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputCost1"/>
+                            </h:inputText>    
+                            <h:message id="inputCost1" 
+                                       for="inputCost" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Удалена:"/>
+                            <h:inputText id="inputDel" value="#{production.delete}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputDel1"/>
+                            </h:inputText>
+                            <h:message id="inputDel1" 
+                                       for="inputDel" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Тип ID:"/>
+                            <h:inputText id="inputType" value="#{production.typeProduct}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputType1"/>
+                            </h:inputText>
+                            <h:message id="inputType1" 
+                                       for="inputType" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:outputLabel for="inputId" value="Язык ID:"/>
+                            <h:inputText id="inputLang" value="#{production.lang}"
+                                         required="true"
+                                         requiredMessage="Поле не должно быть пустым">
+                                <f:ajax event="keyup" render="inputLang1"/>
+                            </h:inputText>
+                            <h:message id="inputLang1" 
+                                       for="inputLang" 
+                                       styleClass="error-message"/>
+                        </p>
+                        <p>
+                            <h:commandButton value="Добавить"
+                                             action="#{production.createProduct()}"
+                                             class="button"/>
+                        </p>
+                    </div>
+                    
+                    <div class="status-container">
+                        <h:outputText id="status" 
+                                      value="#{production.status}"/>
+                        <h:message id="success" 
+                                   for="status" 
+                                   styleClass="success-message"/>
+                    </div>
                 </h:form>
             </ui:define>
         </ui:composition>

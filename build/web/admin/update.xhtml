@@ -15,11 +15,11 @@
 
             <ui:define name="content">
                 <div class="table-production-container">
-                    <h:form>
+                    <h:form class="form-update">
                         <h:dataTable value="#{production.productionList}" 
                                      var="p"
                                      class="table-production"
-                                     columnClasses="tcol1, tcol2, tcol1, tcol2, tcol1, tcol2">
+                                     columnClasses="tcol1, tcol2, tcol1, tcol2, tcol1, tcol2, tcol1">
                             <h:column>
                                 <f:facet name="header">#{msg.table_id}</f:facet>
                                 <h:inputText value="#{p.idProducts}" 
@@ -28,23 +28,28 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msg.table_name}</f:facet>
-                                <h:inputText value="#{p.name}" 
-                                             required="true"/>
-                                    
+                                <h:inputTextarea value="#{p.name}" 
+                                             required="true"
+                                             rows="5"
+                                             cols="15"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msg.table_descr}</f:facet>
-                                <h:inputText value="#{p.descr}" 
-                                             required="true"/>
+                                <h:inputTextarea value="#{p.descr}" 
+                                             required="true"
+                                             rows="10"
+                                             cols="20"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msg.table_delete}</f:facet>
                                 <h:inputText value="#{p.delete}" 
-                                             required="true"/>
+                                             required="true"
+                                             class="delete"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msg.table_image}</f:facet>
-                                <h:inputText value="#{p.image}" 
+                                <h:inputText class="image"
+                                             value="#{p.image}" 
                                              required="true"/>
                             </h:column>
                             <h:column>
@@ -58,7 +63,8 @@
                                              required="true"/>
                             </h:column>
                             <h:column>
-                                <h:commandLink value="#"
+                                <f:facet name="header">#{msg.table_update}</f:facet>
+                                <h:commandLink value="Ok"
                                                action="#{production.updateProduct()}">
                                     <f:param name="id" value="#{p.idProducts}"/>
                                 </h:commandLink>

@@ -15,7 +15,7 @@
 
             <ui:define name="content">
                 <div class="table-production-container">
-                    <h:form>
+                    <h:form class="form-delete">
                         <h:dataTable value="#{production.allProductions}" 
                                      var="p"
                                      class="table-production"
@@ -47,7 +47,8 @@
                             <h:column>
                                 <f:facet name="header">#{msg.table_action_delete}</f:facet>
                                 <h:commandButton action="#{production.deleteProduct}"
-                                                 value="x">
+                                                 value="x"
+                                                 class="button">
                                     <f:param name="id" value="#{p.idProducts}"/>
                                 </h:commandButton>
                             </h:column>

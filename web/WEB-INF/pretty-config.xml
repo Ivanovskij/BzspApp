@@ -56,11 +56,6 @@
         <view-id value="/faces/admin/update.xhtml" />
     </url-mapping>
     
-    <url-mapping id="admin-update-page">
-        <pattern value="/admin-update-page" />
-        <view-id value="/faces/admin/update-page.xhtml" />
-    </url-mapping>
-    
     <url-mapping id="admin-delete">
         <pattern value="/admin-delete" />
         <view-id value="/faces/admin/delete.xhtml" />

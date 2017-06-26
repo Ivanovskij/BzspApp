@@ -46,9 +46,9 @@ public class Production implements Serializable {
     private List<Production> productionList = new ArrayList<>();
 
     private String currentTypePr = "";
-    private String searchText = "";
+    private String searchText = "Введите текст...";
 
-    private Production curProdForUpdate;
+    private String status = "Статус";
 
     public Production() {
         try {
@@ -205,14 +205,16 @@ public class Production implements Serializable {
             pstmt.setString(8, lang);
             int result = pstmt.executeUpdate();
             if (result > 0) {
-                System.out.println("add good");
+                status = "Деталь успешно добавлена";
                 getAllProductions();
+                return;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             closeConnection();
         }
+        status = "Ошибка добавления детали";
     }
 
     // -------------- DELETE -----------------
@@ -395,12 +397,12 @@ public class Production implements Serializable {
         }
     }
 
-    public Production getCurProdForUpdate() {
-        return curProdForUpdate;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCurProdForUpdate(Production curProdForUpdate) {
-        this.curProdForUpdate = curProdForUpdate;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
