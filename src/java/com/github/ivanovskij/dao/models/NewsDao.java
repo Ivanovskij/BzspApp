@@ -137,6 +137,18 @@ public class NewsDao {
     }
     
     // --------------------------------------------------------
+    public List<News> getNewsByDateLimit() {
+        return selectExecute(
+            "SELECT DISTINCT idNews, name, descr, Language_idLanguage as lang, date "
+            + "FROM news " 
+            + "where "
+            + "Language_idLanguage = " + getCurrentLocale() + " and "
+            + "DATE_FORMAT(news.date, '%Y') = '" + CURRENT_DATE + "' " 
+            + "limit 0,3"
+        );       
+    }
+    
+    // --------------------------------------------------------
     public void selectDate() {
         Map<String, String> param = 
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();

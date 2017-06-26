@@ -50,7 +50,7 @@
                     <h2 class="news-title">#{msg.main_news}</h2>
                     <menu>
                         <h:form id="right-col-news">
-                            <ui:repeat var="news" value="#{newsDao.newsByDate}">
+                            <ui:repeat var="news" value="#{newsDao.newsByDateLimit}">
                                 <li class="menu__li">
                                     <p class="menu__date">#{news.date}</p>
                                     <p class="menu__title">#{news.name}</p>

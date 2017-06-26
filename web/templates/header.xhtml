@@ -11,7 +11,18 @@
         <ui:composition>
             <div class="header-container">
                 <div class="logotype">
-                    <h:link outcome="home"><h:graphicImage library="images" name="logo.png" width="490" height="87" alt="logotype"/></h:link>
+                    <h:link outcome="home">
+                        <h:graphicImage library="images" 
+                                        name="logo.png" 
+                                        width="490" height="87" 
+                                        alt="logotype"
+                                        rendered="#{localeChanger.currentLocale == 'ru'}"/>
+                        <h:graphicImage library="images" 
+                                        name="logo_en.png" 
+                                        width="490" height="87" 
+                                        alt="logotype"
+                                        rendered="#{localeChanger.currentLocale == 'en'}"/>
+                    </h:link>
                 </div>
                 <div class="lang">
                     <h:form>

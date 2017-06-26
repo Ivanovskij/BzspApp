@@ -93,6 +93,7 @@ div.lang li {
 nav {
     display: block;
     width: 100%;
+    text-align: center;
 }
 
 div.nav-container {
@@ -673,6 +674,13 @@ article {
 
 /**************** PAGE NEWS *************/
 .left-col-container .selected-date {
+    background: #10457e;
+    color: #fff;
+}
+
+
+/***************** PAGE ABOUT  *************/
+.left-col-container .selected-about-info {
     background: #10457e;
     color: #fff;
 }

@@ -34,16 +34,12 @@ public class AccessCheckerFilter implements Filter {
         String contextPath = req.getContextPath();
         HttpSession session = req.getSession();
         
-        if((session!=null) && (session.getAttribute("AccessInfo")!=null)) {
-            chain.doFilter(request, response);    
-        } else {    
-            if(req.getRequestURI().equals(contextPath+"/")||
-               req.getRequestURI().equals(contextPath+"/faces/login.xhtml")
-              ) {                
-                chain.doFilter(request, response);            // страницы доступные без авторизации
-            } else {    
-                res.sendRedirect(contextPath + "/faces/login.xhtml");    // для остальных редиректим на логин
-            }    
+        if(session == null || 
+                session.isNew() || 
+                session.getAttribute("AccessInfo") == null) {
+            res.sendRedirect(contextPath + "/login");
+        } else {
+            chain.doFilter(request, response); 
         }
     }
 

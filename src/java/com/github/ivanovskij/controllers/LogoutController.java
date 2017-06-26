@@ -32,6 +32,7 @@ public class LogoutController implements Serializable {
             if (request.getSession() != null) {
                 request.logout();
                 FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+                request.getSession().setAttribute("AccessInfo", null);
             }        
         } catch (ServletException se) {
             // NOP

@@ -55,12 +55,15 @@
     </resource-ref>
     <!-- ======================================= Filters ====================================== -->
     <!-- == AccessCheckerFilter == -->
-    <!--<filter>
+    <filter>
         <filter-name>AccessCheckerFilter </filter-name>
         <filter-class>com.github.ivanovskij.filters.AccessCheckerFilter </filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AccessCheckerFilter</filter-name>
-        <url-pattern>/faces/admin/*</url-pattern>
-    </filter-mapping>-->
+        <url-pattern>/admin-index</url-pattern>
+        <url-pattern>/admin-create</url-pattern>
+        <url-pattern>/admin-update</url-pattern>
+        <url-pattern>/admin-delete</url-pattern>
+    </filter-mapping>
 </web-app>
