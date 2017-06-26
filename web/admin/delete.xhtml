@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>IGNORED</title>
     </h:head>
@@ -10,6 +11,49 @@
         <ui:composition template="../templates/admin/templ-admin.xhtml">
             <ui:define name="headAdminTitle">
                 #{msg.admin_delete_title}
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="table-production-container">
+                    <h:form>
+                        <h:dataTable value="#{production.allProductions}" 
+                                     var="p"
+                                     class="table-production"
+                                     columnClasses="tcol1, tcol2, tcol1, tcol2, tcol1, tcol2">
+                            <h:column>
+                                <f:facet name="header">#{msg.table_id}</f:facet>
+                                    #{p.idProducts}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_name}</f:facet>
+                                    #{p.name}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_descr}</f:facet>
+                                    #{p.descr}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_delete}</f:facet>
+                                    #{p.delete}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_image}</f:facet>
+                                    #{p.image}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_typeProduct}</f:facet>
+                                    #{p.typeProduct}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msg.table_action_delete}</f:facet>
+                                <h:commandButton action="#{production.deleteProduct}"
+                                                 value="x">
+                                    <f:param name="id" value="#{p.idProducts}"/>
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

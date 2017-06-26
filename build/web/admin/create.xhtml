@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>IGNORED</title>
     </h:head>
@@ -13,7 +14,53 @@
             </ui:define>
             
             <ui:define name="content">
-                cre
+                <h:form>
+                    <h:messages/>
+                    <p>
+                        ID:
+                        <h:inputText value="#{production.idProducts}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Название:
+                        <h:inputText value="#{production.name}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Описание:
+                        <h:inputText value="#{production.descr}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Картинка:
+                        <h:inputText value="#{production.image}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Цена:
+                        <h:inputText value="#{production.cost}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Удалена:
+                        <h:inputText value="#{production.delete}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Тип ID:
+                        <h:inputText value="#{production.typeProduct}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        Язык ID:
+                        <h:inputText value="#{production.lang}"
+                                 required="true"/>    
+                    </p>
+                    <p>
+                        <h:commandButton value="Добавить"
+                                         action="#{production.createProduct()}"/>
+                    </p>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>

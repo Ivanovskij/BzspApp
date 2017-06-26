@@ -17,11 +17,11 @@
                 <div class="col-container">
                     <div class="left-col-container">
                         <h:form id="form-detail-type">
-                            <ui:repeat var="typePr" value="#{productionDao.allTypeProducts}">
+                            <ui:repeat var="typePr" value="#{production.allTypeProducts}">
                                 <li>
                                     <h:commandLink value="#{typePr.typeProduct}"
-                                                   styleClass="#{typePr.typeProduct.equals(productionDao.currentTypePr) ? 'selected-typePr':''}"
-                                                   action="#{productionDao.selectTypePr}">
+                                                   styleClass="#{typePr.typeProduct.equals(production.currentTypePr) ? 'selected-typePr':''}"
+                                                   action="#{production.selectTypePr}">
                                         <f:param name="typePr" value="#{typePr.typeProduct}"/>
                                         
                                     </h:commandLink>
@@ -32,10 +32,10 @@
                     <div class="right-col-container">
                         <div class="detail-container">
                             <h:outputText class="title" 
-                                          value="#{typePr.typeProduct.equals(productionDao.currentTypePr) 
+                                          value="#{typePr.typeProduct.equals(production.currentTypePr) 
                                                    ? typePr.typeProduct : msg.choose_typedetail}"/>
                             <h:form id="form-detail">
-                                <ui:repeat var="d" value="#{productionDao.productByType}">
+                                <ui:repeat var="d" value="#{production.productByType}">
                                     <div class="detail">
                                         <div class="d__img">
                                             <a href="#">

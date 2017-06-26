@@ -25,7 +25,7 @@ body {
 }
 
 .empty {
-    height: 162px;
+    height: 50px;
 }
 
 div.middle-container {
@@ -113,7 +113,7 @@ main {
     font: 16px Arial, Helvetica, sans-serif;
     margin-right: 20px;
     text-align: center;
-    width: 250px;
+    width: 220px;
 }
 
 .left-col-container li a {
@@ -148,9 +148,78 @@ li a.selected {
     border-radius: 5px;
     float: right;
     min-height: 225px;
-    width: 700px;
+    width: 740px;
+    overflow: auto;
 }
 
+/** search **/
+.form-search {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+.form-search .input {
+    border-radius: 3px;
+    float: left;
+    padding: 3px;
+    margin-right: 10px;
+    width: 500px;
+}
+
+.form-search .button {
+    background: #555;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    width: 150px;
+}
+
+/** table **/
+.table-production-container {
+    height: 700px;
+    width: 100%;
+    overflow: auto;
+}
+.table-production {
+    border-collapse: collapse;
+    width: 100%
+}
+
+.table-production th {
+    background: #555;
+    color: #fff;
+    padding: 15px;
+}
+
+.table-production tr {
+    border-bottom: 1px solid #555;
+}
+.table-production tr:last-child {
+    border-bottom: none;
+}
+
+.table-production tr td {
+    border-right: 1px solid #555;
+    padding: 5px;
+    text-align: center;
+}
+.table-production tr td:last-child {
+    border-right: none;
+}
+
+.tcol1 {
+    background: #f0f0f0;
+}
+.tcol2 {
+    background: #f5f5f5;
+}
+.tcol3 {
+    background: #f0f0f0;
+}
 
 
 /*====================================== FOOTER =======================*/

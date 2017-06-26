@@ -17,7 +17,7 @@
                     <div class="sl-detail-container">
                         <h2 class="last-view-title">#{msg.main_last_view_detail}</h2>
                         <div class="sl__detail">
-                            <ui:repeat var="p" value="#{productionDao.productByType}">
+                            <ui:repeat var="p" value="#{production.productByType}">
                                 <div class="dsl__slide">
                                     <h:link outcome="production">
                                         <h:graphicImage library="images/details/" 
